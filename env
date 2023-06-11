@@ -1,0 +1,6 @@
+AWS_ACCESS_KEY_ID=<aws access key>
+AWS_SECRET_ACCESS_KEY=<aws secret access key>
+
+NOTEBOOKS_PATH=C:\Users\Public\spark2\notebooks
+SRC_PATH=C:\Users\Public\spark2\src
+DATA_PATH=C:\Users\Public\spark2\data

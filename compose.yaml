@@ -1,0 +1,22 @@
+services:
+  webapp:
+    #Cria um container name (pyspark_notebook)
+    container_name: residencia_a3data
+    #Builda essa imagem
+    build: .
+    image: residencia_a3data
+    #Dá o start no Jupyter Notebook dLab
+    command: start.sh jupyter lab --LabApp.token=''
+    #Define a porta para a imagem referida
+    ports:
+    - "8888:8888"
+    #Copiar informações de um lugar para dentro do docker. Lugares: Notebooks,src e data). Cria variáveis para o .env
+    volumes:
+      - ${NOTEBOOKS_PATH}:/home/jovyan/work/notebooks/
+      - ${SRC_PATH}:/home/jovyan/work/src/
+      - ${DATA_PATH}:/home/jovyan/work/data/
+    #Prepara o ambiente AWS para facilitar o acesso.
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      PYARROW_IGNORE_TIMEZONE: 1
